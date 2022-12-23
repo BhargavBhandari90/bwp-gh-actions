@@ -22,5 +22,6 @@ jobs:
         uses: varunsridharan/action-wp-textdomain@2.0
         with:
           domain: 'gh-actions'
+          path: ./
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
