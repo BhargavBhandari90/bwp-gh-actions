@@ -12,5 +12,5 @@
  */
 
 function test_callback() {
-    echo 'Hello GH Actions...';
+    echo __( 'Hello GH Actions...', 'test-dd' );
 }

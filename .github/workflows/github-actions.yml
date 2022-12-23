@@ -18,8 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: WP Text Domain
+        uses: varunsridharan/action-wp-textdomain@2.0
         with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+          domain: 'gh-actions'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
