@@ -5,21 +5,14 @@ on:
     branches:
       - main
 jobs:
-  check-bats-version:
+  hello_world_job:
     runs-on: ubuntu-latest
+    name: A job to say hello
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - id: foo
+        uses: actions/bwp-my-action@v1
         with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
-  check-text-domain:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: WP Text Domain
-        uses: varunsridharan/action-wp-textdomain@2.0
-        with:
-          domain: 'gh-actions'
-          path: ./
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
