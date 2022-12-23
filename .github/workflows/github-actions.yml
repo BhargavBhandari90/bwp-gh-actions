@@ -14,14 +14,12 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
-  check-buntywp:
+  check-text-domain:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: WP Text Domain
-        uses: varunsridharan/action-wp-textdomain@2.0
-        with:
-          domain: 'gh-actions'
-          path: ./
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - uses: varunsridharan/action-wp-textdomain@2.0
+          with:
+            domain: 'gh-actions'
+            path: ./
